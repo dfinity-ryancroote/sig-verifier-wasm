@@ -16,4 +16,7 @@ jobs:
 
       - name: Install Rust
         run: |
-          rustup update --no-self-update
+          rustup update 1.79 --no-self-update
+          cargo install wasm-pack
+          npm run build
+          ls -lahi dist/
