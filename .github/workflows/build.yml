@@ -1,7 +1,7 @@
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "*"
 
 permissions:
   contents: write
@@ -14,9 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Rust
+      - name: Generate tarball
         run: |
           rustup update 1.79 --no-self-update
           cargo install wasm-pack
           npm run build
           ls -lahi dist/
+          cd dist/
+          tar czf dist.tar.gz .
+
+      - name: Release
+        uses: "softprops/action-gh-release@v1"
+        with:
+          files: |
+            ./dist/dist.tar.gz
