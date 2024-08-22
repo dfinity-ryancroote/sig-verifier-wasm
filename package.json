@@ -1,0 +1,27 @@
+{
+  "name": "sig_verifier",
+  "type": "module",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE.md",
+  "exports": {
+    "./sig_verifier": "./dist/sig_verifier.js",
+    "./sig_verifier_bg": "./dist/sig_verifier_bg.js",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "sig_verifier_js": [
+        "dist/sig_verifier.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "wasm-pack build --out-dir dist --release && rm dist/package.json"
+  },
+  "devDependencies": {
+    "typescript": "5.2.2",
+    "vite": "^4.5.3",
+    "vite-plugin-wasm": "^3.3.0",
+    "vitest": "^0.34.0"
+  }
+}

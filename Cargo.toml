@@ -1,0 +1,11 @@
+[package]
+name = "sig_verifier"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+sig_verifier_js = { git = "https://github.com/dfinity/internet-identity.git", rev = "3f74a48d32334c339f81add7f66a0a7982e3cf5e" }
+wasm-bindgen = "0.2"
