@@ -21,10 +21,10 @@ jobs:
           npm run build
           ls -lahi dist/
           cd dist/
-          tar czf dist.tar.gz .
+          tar czf ../dist.tar.gz .
 
       - name: Release
         uses: "softprops/action-gh-release@v1"
         with:
           files: |
-            ./dist/dist.tar.gz
+            ./dist.tar.gz
